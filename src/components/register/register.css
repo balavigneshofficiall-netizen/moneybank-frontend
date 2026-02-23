@@ -1,0 +1,520 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+    --vh: 1vh;
+    --primary: #059669;
+    --primary-light: #10b981;
+    --primary-dark: #047857;
+    --bg-light: #f8fafc;
+    --card-bg: #ffffff;
+    --text-main: #0f172a;
+    --text-muted: #64748b;
+    --border-color: #e2e8f0;
+    --input-bg: #f1f5f9;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Outfit', sans-serif;
+    background-color: var(--bg-light);
+    height: 100%;
+    overflow: auto !important;
+}
+
+/* Base Layout */
+.register-page {
+    display: flex;
+    min-height: 100vh;
+    min-height: 100dvh;
+    width: 100%;
+    background: var(--bg-light);
+}
+
+/* Left Panel - Premium Mesh Gradient */
+.register-left {
+    flex: 0 0 45%;
+    position: relative;
+    background-color: #022c22;
+    background-image:
+        radial-gradient(at 0% 0%, hsla(158, 100%, 25%, 1) 0px, transparent 50%),
+        radial-gradient(at 100% 0%, hsla(160, 100%, 15%, 1) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, hsla(158, 95%, 30%, 1) 0px, transparent 50%),
+        radial-gradient(at 0% 100%, hsla(164, 100%, 18%, 1) 0px, transparent 50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 48px;
+    overflow: hidden;
+    color: white;
+}
+
+/* Animated orbs for premium feel */
+.register-left::before {
+    content: '';
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(16, 185, 129, 0.15) 0%, rgba(0, 0, 0, 0) 70%);
+    border-radius: 50%;
+    top: -100px;
+    left: -100px;
+    animation: float 10s infinite alternate ease-in-out;
+}
+
+.register-left::after {
+    content: '';
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(5, 150, 105, 0.2) 0%, rgba(0, 0, 0, 0) 70%);
+    border-radius: 50%;
+    bottom: -50px;
+    right: -150px;
+    animation: float 8s infinite alternate-reverse ease-in-out;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0px) translateX(0px);
+    }
+
+    100% {
+        transform: translateY(30px) translateX(40px);
+    }
+}
+
+.register-brand {
+    text-align: center;
+    z-index: 2;
+    animation: fadeUp 0.8s ease-out;
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.register-logo-large {
+    width: 110px;
+    height: 110px;
+    margin-bottom: 24px;
+    filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.2));
+}
+
+.brand-title {
+    font-size: 42px;
+    font-weight: 800;
+    margin: 0 0 16px;
+    letter-spacing: -1px;
+    background: linear-gradient(135deg, #fff 0%, #a7f3d0 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.brand-tagline {
+    font-size: 18px;
+    color: #a7f3d0;
+    margin: 0 auto;
+    max-width: 320px;
+    line-height: 1.6;
+    font-weight: 300;
+}
+
+/* Right Panel - Form Container */
+.register-right {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    position: relative;
+    overflow-y: auto;
+    height: 100vh;
+}
+
+.register-card {
+    width: 100%;
+    max-width: 480px;
+    background: var(--card-bg);
+    border-radius: 20px;
+    padding: 36px 32px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    position: relative;
+    z-index: 2;
+    animation: scaleIn 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.mobile-logo-wrapper {
+    display: none;
+}
+
+.register-card h2 {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--text-main);
+    margin: 0 0 6px;
+    text-align: center;
+    letter-spacing: -0.5px;
+}
+
+.subtitle {
+    font-size: 15px;
+    color: var(--text-muted);
+    margin: 0 0 24px;
+    text-align: center;
+}
+
+/* Avatar Upload - Modern Glass feel */
+.avatar-upload-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 36px;
+    position: relative;
+}
+
+.avatar-upload {
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    background: var(--input-bg);
+    border: 2px dashed #cbd5e1;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.02);
+}
+
+.avatar-upload:hover {
+    border-color: var(--primary-light);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(16, 185, 129, 0.1);
+}
+
+.avatar-upload.dragging {
+    border-color: var(--primary);
+    background: #ecfdf5;
+    transform: scale(1.05);
+}
+
+.avatar-upload.has-image {
+    border: 2px solid var(--primary);
+}
+
+.avatar-placeholder svg {
+    width: 36px;
+    height: 36px;
+    color: #94a3b8;
+    transition: color 0.3s ease;
+}
+
+.avatar-upload:hover .avatar-placeholder svg {
+    color: var(--primary-light);
+}
+
+.avatar-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.avatar-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.avatar-overlay svg {
+    width: 28px;
+    height: 28px;
+    color: white;
+}
+
+.avatar-upload:hover .avatar-overlay {
+    opacity: 1;
+}
+
+.avatar-remove {
+    position: absolute;
+    top: 0;
+    right: calc(50% - 48px);
+    width: 28px;
+    height: 28px;
+    background: #ef4444;
+    border: 2px solid white;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 6px rgba(239, 68, 68, 0.2);
+    transition: all 0.2s ease;
+    z-index: 10;
+}
+
+.avatar-remove:hover {
+    transform: scale(1.1) rotate(90deg);
+    background: #dc2626;
+}
+
+.avatar-remove svg {
+    width: 14px;
+    height: 14px;
+    color: white;
+}
+
+.avatar-label {
+    margin-top: 8px;
+    font-size: 13px;
+    color: var(--primary);
+    font-weight: 500;
+}
+
+/* Inputs Layout */
+.row-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.input-group {
+    margin-bottom: 16px;
+    position: relative;
+}
+
+.input-group label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-main);
+    margin-bottom: 6px;
+    margin-left: 4px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px 16px;
+    font-size: 14px;
+    color: var(--text-main);
+    background: var(--input-bg);
+    border: 1.5px solid transparent;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+    font-family: inherit;
+}
+
+.input-group input::placeholder {
+    color: #94a3b8;
+}
+
+.input-group input:hover {
+    background: #e2e8f0;
+}
+
+.input-group input:focus {
+    outline: none;
+    background: white;
+    border-color: var(--primary-light);
+    box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.1);
+}
+
+/* Premium Button */
+.register-btn {
+    width: 100%;
+    padding: 14px;
+    margin-top: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    color: white;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 20px rgba(5, 150, 105, 0.2);
+    position: relative;
+    overflow: hidden;
+    font-family: inherit;
+}
+
+.register-btn::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transform: skewX(-20deg);
+    transition: all 0.5s ease;
+}
+
+.register-btn:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 24px rgba(5, 150, 105, 0.3);
+}
+
+.register-btn:hover:not(:disabled)::after {
+    left: 150%;
+}
+
+.register-btn:active:not(:disabled) {
+    transform: translateY(1px);
+    box-shadow: 0 4px 10px rgba(5, 150, 105, 0.2);
+}
+
+.register-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    background: #94a3b8;
+    box-shadow: none;
+}
+
+/* Footer link */
+.footer-text {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 14px;
+    color: var(--text-muted);
+}
+
+.login-link {
+    color: var(--primary);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    padding: 4px 8px;
+    border-radius: 6px;
+}
+
+.login-link:hover {
+    color: var(--primary-dark);
+    background: rgba(16, 185, 129, 0.1);
+}
+
+/* Variables & Responsive */
+@media (max-width: 1024px) {
+    .register-left {
+        flex: 0 0 40%;
+        padding: 32px;
+    }
+
+    .brand-title {
+        font-size: 32px;
+    }
+
+    .brand-tagline {
+        font-size: 16px;
+    }
+
+    .register-card {
+        padding: 40px 32px;
+    }
+}
+
+@media (max-width: 768px) {
+    .register-page {
+        flex-direction: column;
+        background: #022c22;
+        background-image:
+            radial-gradient(at 0% 0%, hsla(158, 100%, 25%, 1) 0px, transparent 50%),
+            radial-gradient(at 100% 100%, hsla(164, 100%, 18%, 1) 0px, transparent 50%);
+    }
+
+    .register-left {
+        display: none;
+    }
+
+    .register-right {
+        padding: 20px;
+    }
+
+    .register-card {
+        padding: 40px 24px;
+        border-radius: 28px;
+        box-shadow: 0 24px 48px rgba(0, 0, 0, 0.2);
+    }
+
+    .mobile-logo-wrapper {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 24px;
+        animation: fadeUp 0.6s ease;
+    }
+
+    .mobile-logo {
+        width: 72px;
+        height: 72px;
+        filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+    }
+
+    .row-2 {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .input-group {
+        margin-bottom: 20px;
+    }
+
+    .register-card h2 {
+        font-size: 28px;
+    }
+
+    .subtitle {
+        margin-bottom: 32px;
+    }
+}
+
+@media (max-width: 480px) {
+    .register-right {
+        padding: 16px;
+    }
+
+    .register-card {
+        padding: 32px 20px;
+        border-radius: 24px;
+    }
+
+    .avatar-upload {
+        width: 88px;
+        height: 88px;
+    }
+
+    .input-group input {
+        padding: 14px 16px;
+    }
+}

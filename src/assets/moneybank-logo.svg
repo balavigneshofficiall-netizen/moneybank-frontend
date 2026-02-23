@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none">
+  <!-- Outer Circle -->
+  <circle cx="60" cy="60" r="56" fill="#0a5c46"/>
+  
+  <!-- Inner Circle -->
+  <circle cx="60" cy="60" r="48" fill="#10a37f"/>
+  
+  <!-- Dollar/Money Symbol -->
+  <path d="M60 25V95" stroke="white" stroke-width="4" stroke-linecap="round"/>
+  <path d="M45 40C45 35 52 30 60 30C68 30 75 35 75 42C75 49 68 52 60 52C52 52 45 55 45 62C45 69 52 74 60 74C68 74 75 69 75 64" stroke="white" stroke-width="6" stroke-linecap="round"/>
+  
+  <!-- Decorative Lines -->
+  <path d="M35 45H42" stroke="white" stroke-width="3" stroke-linecap="round"/>
+  <path d="M78 45H85" stroke="white" stroke-width="3" stroke-linecap="round"/>
+  <path d="M35 59H42" stroke="white" stroke-width="3" stroke-linecap="round"/>
+  <path d="M78 59H85" stroke="white" stroke-width="3" stroke-linecap="round"/>
+</svg>
