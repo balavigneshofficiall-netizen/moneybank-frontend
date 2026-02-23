@@ -8,4 +8,7 @@ export default defineConfig({
     host: true, // Set your desired IP here
     port: 5175,
   },
+  preview: {
+    allowedHosts: true,
+  },
 })
